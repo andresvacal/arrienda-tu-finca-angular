@@ -1,0 +1,51 @@
+<section class="car-list-card">
+    <div class="car-list-card-image" style="height: 160px;">
+        <img [src]="propiedadData?.fotos[0]?.nombreArchivo">
+    </div>
+    <div class="car-list-card-description"><!---->
+        <div class="car-list-card-description-reviews">
+            <div class="car-list-card-description-reviews-icon"><i class="fa fa-star" aria-hidden="true"></i></div>
+            <div class="car-list-card-description-reviews-value">
+                {{propiedadData?.descripcion}}            </div>
+            <div class="car-list-card-description-reviews-count">
+            </div>
+        </div>
+        <div class="car-list-card-description-title">
+            {{propiedadData?.nombre}}
+
+        </div>
+        <div class="car-list-card-description-properties">
+            <div class="car-list-card-description-properties-property" >
+                Tipo de servicio: {{propiedadData?.tipoIngreso}}
+                <div class="property-point"></div>
+                
+            </div>
+            <div class="car-list-card-description-properties-property" >
+                Habitaciones: {{propiedadData?.cantidadHabitaciones}}
+                <div class="property-point"></div>
+            </div>
+            <div class="car-list-card-description-properties-property">
+                Cantidad de baños: {{propiedadData?.cantidadBanios}}
+            
+            </div>
+        </div>
+    </div>
+    <div class="car-list-card-price-distance">
+        <div class="car-list-card-price">
+            <div class="car-list-card-price-availability-text">
+                {{propiedadData?.departamento}}
+            </div>
+            <div class="car-list-card-price-title">
+                ${{propiedadData?.valorNoche}} x noche
+            </div>
+            <div class="car-list-card-price-sub-title">
+
+            </div>
+        </div>
+        <div class="car-list-card-distance"><img src="https://www.svgrepo.com/show/77412/location-point.svg" alt="location">
+            <div class="car-list-card-distance-place">
+                {{propiedadData?.municipio}}
+            </div>
+        </div>
+    </div>
+</section>

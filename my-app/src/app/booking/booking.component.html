@@ -1,0 +1,88 @@
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-8">
+            <div class="row">
+                <div class="col-8">
+                    <div class="card" style="border: none;">
+                        <div class="card-body p-0"> <img style="border-radius: 10px;"
+                                [src]="propiedadDetails?.fotos[0]?.nombreArchivo">
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fa fa-star" aria-hidden="true"></i> 
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <p>    {{propiedadDetails?.nombre}} <small></small></p> 
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="row pt-2">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-5">
+                                    <h6>From</h6>
+                                    <p>Mié, 22 Nov, 08:00 AM
+                                       </p>
+                                       <p> </p>
+                                </div>
+                                <div class="col-2">
+                                    <i style="font-size: 32px;padding-top: 38px;" class="fa  fa-chevron-right" aria-hidden="true"></i>
+                                    <i style="font-size: 32px;padding-top: 38px;" class="fa  fa-chevron-right" aria-hidden="true"></i>
+                                </div>
+                                <div class="col-5 text-end">
+                                    <h6>To</h6>
+                                    <p>Mié, 22 Nov, 08:00 AM
+                                       </p>
+                                       <p> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-2">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Sobre la comodidad</h4>
+                            <p>{{propiedadDetails?.descripcion}}</p>
+                            <div class="row">
+                                <div class="col-3 pt-2">
+                                    <i class="fa fa-car" aria-hidden="true"></i> {{propiedadDetails?.cantidadHabitaciones}} Habitaciones
+                                </div>
+                                <div class="col-3 pt-2">
+                                    <i class="fa fa-car" aria-hidden="true"></i> {{propiedadDetails?.cantidadBanios}} Baños
+                                </div>
+                                <div class="col-3 pt-2">
+                                    <i class="fa fa-car" aria-hidden="true"></i> {{propiedadDetails?.permiteMascotas ? 'Mascotas permitidas' : 'Mascotas no permitidas'}}
+                              </div>
+                                <div class="col-3 pt-2">
+                                    <i class="fa fa-car" aria-hidden="true"></i> {{propiedadDetails?.tienePiscina ? 'Piscina' : 'Sin piscina'}}
+                                </div>
+                            
+                                <div class="col-3 pt-2">
+                                    <i class="fa fa-car" aria-hidden="true"></i> {{propiedadDetails?.tieneAsador ? 'Asador' : 'Sin asador'}}
+                                </div>
+                                <div class="col-3 pt-2">
+                                    <i class="fa fa-car" aria-hidden="true"></i> Valor por noche: ${{propiedadDetails?.valorNoche}}
+                                </div>
+                            </div>
+                            
+                    </div>
+                </div>
+            </div>
+          
+         
+                </div>
+            </div>
+        </div>
