@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PropiedadCardComponent} from './reusableComponents/propiedad-card/propiedad-card.component';
 import { PropiedadesComponent } from './propiedades/propiedades.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,   
     HttpClientModule,
     JsonPipe
   ],

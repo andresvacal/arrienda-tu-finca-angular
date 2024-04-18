@@ -8,6 +8,11 @@ export class PropiedadService {
   apiEndpoint = 'https://gruposjaveriana.dynaco.co/grupo27/';
   constructor(private http:HttpClient) { }
 
+  registrarUsuario(obj:any){
+   return this.http.post(this.apiEndpoint + 'usuario/RegistrarUsuario', obj)
+  }
+
+  
   ObtenerPropiedades() {
 return this.http.get(this.apiEndpoint + 'propiedad/Verpropiedades');
   }
