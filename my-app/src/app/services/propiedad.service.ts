@@ -9,9 +9,13 @@ export class PropiedadService {
   constructor(private http:HttpClient) { }
 
   registrarUsuario(obj:any){
-   return this.http.post(this.apiEndpoint + 'usuario/RegistrarUsuario', obj)
+    console.log(obj);
+   return this.http.post(this.apiEndpoint + 'arrendatario/GuardarArrendatario', obj)
   }
-
+  loginUser(obj:any){
+    console.log(obj);
+   return this.http.post(this.apiEndpoint + 'arrendatario/GuardarArrendatario', obj)
+  }
   
   ObtenerPropiedades() {
 return this.http.get(this.apiEndpoint + 'propiedad/Verpropiedades');

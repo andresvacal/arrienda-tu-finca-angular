@@ -453,6 +453,7 @@ body {
     font-family: "IBM Plex Sans";
     cursor: pointer;
     background: white
+    
 }
 .round {
   text-align: center;
@@ -644,18 +645,6 @@ body {
   margin: 15px;
 }
 
-.navbar-toggler {
-  border: none; /* Remove border */
-  background-color: transparent; /* Make background transparent */
-}
-
-.navbar-toggler:focus {
-  outline: none; /* Remove focus outline */
-}
-
-.navbar-toggler-icon {
-  background-color: white; /* Set color of the toggler icon */
-}
 
 
 header {

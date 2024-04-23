@@ -3,9 +3,9 @@
         <button class="btn btn-success btn-sm">Add New</button>
     </div>
 </div>
-<div class="car-list-home-container">
+<div class="container car-list-home-container">
     <div class="row car-list-home">
-        <div class="col-3" *ngFor="let propiedad of propiedadList">
+        <div class="col-6" *ngFor="let propiedad of propiedadList">
             <app-propiedad-card [propiedadData]="propiedad"></app-propiedad-card>
         </div>
     </div>
