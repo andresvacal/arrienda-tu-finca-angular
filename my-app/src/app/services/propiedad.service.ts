@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PropiedadService {
-  apiEndpoint = 'https://gruposjaveriana.dynaco.co/grupo27/';
+  apiEndpoint = 'http://localhost:8080/grupo27/';
   constructor(private http:HttpClient) { }
 
   registrarUsuario(obj:any){
@@ -14,7 +14,7 @@ export class PropiedadService {
   }
   loginUser(obj:any){
     console.log(obj);
-   return this.http.post(this.apiEndpoint + 'arrendatario/GuardarArrendatario', obj)
+   return this.http.post(this.apiEndpoint + 'arrendatario/login', obj)
   }
   
   ObtenerPropiedades() {

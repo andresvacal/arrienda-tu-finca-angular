@@ -53,11 +53,9 @@ onlogin(){
       localStorage.setItem('arrUsuario', JSON.stringify(res.data));
       console.log(res);
       this.closeLogin();
-    // Handle other status codes if needed
+  }else{
     alert('Error: ' + res.statusText);
-  }
-
-  })
+  }});
 }
 
 openLogin() {
