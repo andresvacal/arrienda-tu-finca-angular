@@ -1,12 +1,88 @@
 <div class="row">
     <div class="col-12 text-end">
-        <button class="btn btn-success btn-sm">Add New</button>
+        <button class="btn btn-success btn-sm" (click)="open()">Add New</button>
     </div>
 </div>
-<div class="container car-list-home-container">
+<div class=" car-list-home-container">
     <div class="row car-list-home">
         <div class="col-6" *ngFor="let propiedad of propiedadList">
             <app-propiedad-card [propiedadData]="propiedad"></app-propiedad-card>
         </div>
     </div>
 </div>
+
+<div class="modal" id="newpropertyModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Registro</h4>
+          <button type="button" class="btn-close" (click)="close()" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col">
+              <label for="">Nombre</label>
+              <input type="text" [(ngModel)]="propiedadObj.nombre" class="form-control">
+            </div>
+            <div class="col">
+              <label for="">departamento</label>
+              <input type="text" [(ngModel)]="propiedadObj.departamento" class="form-control">
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col">
+              <label for="">Municipio</label>
+              <input type="text" [(ngModel)]="propiedadObj.municipio" class="form-control">
+            </div>
+            <select name="" [(ngModel)]="propiedadObj.permiteMascotas" class="form-control">
+                <option value="">Tipo de ingreso</option>
+                <option value="Diario">Diario</option>
+                <option value="Semanal">Semanal</option>
+                <option value="Mensual">Mensual</option>
+              </select>
+            <div class="col">
+                <label for="">Valor por noche</label>
+                <input type="text" [(ngModel)]="propiedadObj.valorNoche" class="form-control">
+              </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col">
+              <label for="">Descripcion del inmueble</label>
+              <input type="text" [(ngModel)]="propiedadObj.descripcion" class="form-control">
+            </div>
+          </div>
+          <div class="col">
+            <label for="">Cantidad de habitaciones</label>
+            <input type="text" [(ngModel)]="propiedadObj.cantidadHabitaciones" class="form-control">
+          </div>
+          <div class="col">
+            <label for="">Cantidad de baños</label>
+            <input type="text" [(ngModel)]="propiedadObj.cantidadBanios" class="form-control">
+          </div>
+          <label for="">Permite mascotas</label>
+          <select name="" [(ngModel)]="propiedadObj.permiteMascotas" class="form-control">
+            <option value="">Seleccione una opción</option>
+            <option value="true">Si</option>
+            <option value="false">No</option>
+          </select>
+          <label for="">Tiene Piscina</label>
+          <select name="" [(ngModel)]="propiedadObj.tienePiscina" class="form-control">
+            <option value="">Seleccione una opción</option>
+            <option value="true">Si</option>
+            <option value="false">No</option>
+          </select>
+          <label for="">Tiene Asador</label>
+          <select name="" [(ngModel)]="propiedadObj.tieneAsador" class="form-control">
+            <option value="">Seleccione una opción</option>
+            <option value="true">Si</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-success">Enviar</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>

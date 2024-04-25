@@ -16,10 +16,20 @@ export class AppComponent {
   "telefono": "",
   "password": "",
   };
-
+  loginObj: any = {
+    "nombres": "11",
+    "apellidos": "11",
+    "correoElectronico": "",
+    "telefono": "111",
+    "password": "",
+    };
+    loggedUser: any;
   constructor(private propSrv : PropiedadService) {
 
-
+    const local = localStorage.getItem('UsuarioArriendaTuFinca');
+    if (local != null) {
+      this.loggedUser = JSON.parse(local);
+    }
   }
   onRegister() {
     this.propSrv.registrarUsuario(this.registerObj).subscribe((res: any) => {
@@ -27,12 +37,15 @@ export class AppComponent {
           alert('Usuario registrado');
           console.log(res);
           this.closeRegister();
-        // Handle other status codes if needed
-        alert('Error: ' + res.statusText);
+          this.loggedUser = res.data;
+          alert('Error: ' + res.statusText);
       }
       } );
   }
-  
+  logoff() {
+    localStorage.removeItem('UsuarioArriendaTuFinca');
+    this.loggedUser = undefined;
+  }
   openRegister() {
     const model = document.getElementById('registerModal'); 
     if(model != null) {
@@ -40,24 +53,26 @@ export class AppComponent {
     }
 }
 closeRegister() {
-
   const model = document.getElementById('registerModal'); 
   if(model != null) {
     model.style.display = 'none';
   }
 }
 onlogin(){
-  this.propSrv.loginUser(this.registerObj).subscribe((res: any) => {
-    if (res == null) {
-      alert('Login exitoso');
-      localStorage.setItem('arrUsuario', JSON.stringify(res.data));
-      console.log(res);
-      this.closeLogin();
-    // Handle other status codes if needed
-    alert('Error: ' + res.statusText);
-  }
+  debugger;
+  this.propSrv.loginUser(this.loginObj).subscribe((res: any) => {
+    if (res !== null) { // Corrected inequality check
+        alert('Login exitoso');
+        localStorage.setItem('UsuarioArriendaTuFinca', JSON.stringify(res));
+        console.log(res);
+        this.loggedUser = res.data;
 
-  })
+        this.closeLogin();
+
+    } else {
+        alert('Error: ' + res.statusText);
+    }
+});
 }
 
 openLogin() {
