@@ -10,12 +10,16 @@ export class PropiedadService {
 
   registrarUsuario(obj:any){
     console.log(obj);
-   return this.http.post(this.apiEndpoint + 'arrendatario/GuardarArrendatario', obj)
+   return this.http.post(this.apiEndpoint + 'arrendador/GuardarArrendador', obj)
   }
   loginUser(obj:any){
     console.log(obj);
+   return this.http.post(this.apiEndpoint + 'arrendador/login', obj)
+  }
+  registerproperty(obj: any, userId: any) {
+    console.log(obj);
     debugger;
-   return this.http.post(this.apiEndpoint + 'arrendatario/login', obj)
+    return this.http.post(`${this.apiEndpoint}propiedad/GuardarPropiedad/${userId}`, obj);
   }
   
   ObtenerPropiedades() {

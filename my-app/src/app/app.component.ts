@@ -61,12 +61,11 @@ closeRegister() {
 onlogin(){
   debugger;
   this.propSrv.loginUser(this.loginObj).subscribe((res: any) => {
-    if (res !== null) { // Corrected inequality check
+    if (res !== null) { 
         alert('Login exitoso');
         localStorage.setItem('UsuarioArriendaTuFinca', JSON.stringify(res));
         console.log(res);
         this.loggedUser = res.data;
-
         this.closeLogin();
 
     } else {

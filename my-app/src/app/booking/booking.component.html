@@ -1,88 +1,158 @@
-<div class="container-fluid" >
-    <div class="row">
-        <div class="col-8">
-            <div class="row">
-                <div class="col-8">
-                    <div class="card" style="border: none;">
-                        <div class="card-body p-0"> <img style="border-radius: 10px;"
-                                [src]="propiedadDetails?.fotos[0]?.nombreArchivo">
-                        
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Details</title>
+<style>
+    /* Base settings for the layout */
+    .full-width {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .main-column,
+    .side-column,
+    .wide-column {
+        padding: 15px;
+    }
+
+    /* Styling for main container and rows */
+    .main-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .flex-row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    /* Column sizing */
+    .main-column {
+        flex: 0 0 66.66%;
+    }
+
+    .side-column {
+        flex: 0 0 33.33%;
+    }
+
+    .wide-column {
+        flex: 0 0 100%;
+    }
+
+    /* Card styling */
+    .info-card {
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    .info-card .card-body {
+        padding: 20px;
+        background-color: #fff;
+    }
+
+    .info-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    /* Typography and icons */
+    h4, h6 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #666;
+        line-height: 1.5;
+    }
+
+    .fa {
+        color: #f0ad4e; /* Change icon color here */
+    }
+
+    /* Utility classes */
+    .text-end {
+        text-align: right;
+    }
+
+    .pt-2 {
+        padding-top: 10px;
+    }
+</style>
+</head>
+<body>
+<div class="main-container">
+    <div class="flex-row">
+        <div class="main-column">
+            <div class="flex-row">
+                <div class="main-column">
+                    <div class="info-card">
+                        <div class="card-body p-0">
+                            <img [src]="propiedadDetails?.fotos[0]?.nombreArchivo">
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="card">
+                <div class="side-column">
+                    <div class="info-card">
                         <div class="card-body">
                             <i class="fa fa-star" aria-hidden="true"></i> 
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <p>    {{propiedadDetails?.nombre}} <small></small></p> 
+                            <!-- more icons -->
+                            <p> {{propiedadDetails?.nombre}} <small></small></p>
                         </div>
                     </div>
-                   
                 </div>
             </div>
-            <div class="row pt-2">
-                <div class="col-12">
-                    <div class="card">
+            <div class="flex-row pt-2">
+                <div class="wide-column">
+                    <div class="info-card">
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-5">
-                                    <h6>From</h6>
-                                    <p>Mié, 22 Nov, 08:00 AM
-                                       </p>
-                                       <p> </p>
+                            <div class="flex-row">
+                                <div class="main-column">
+                                    <h6>Habitaciones</h6>
+                                    <p>{{propiedadDetails?.cantidadHabitaciones}}</p>
                                 </div>
-                                <div class="col-2">
-                                    <i style="font-size: 32px;padding-top: 38px;" class="fa  fa-chevron-right" aria-hidden="true"></i>
-                                    <i style="font-size: 32px;padding-top: 38px;" class="fa  fa-chevron-right" aria-hidden="true"></i>
+                                <div class="side-column">
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
                                 </div>
-                                <div class="col-5 text-end">
-                                    <h6>To</h6>
-                                    <p>Mié, 22 Nov, 08:00 AM
-                                       </p>
-                                       <p> </p>
+                                <div class="main-column text-end">
+                                    <h6>Baños</h6>
+                                    <p>{{propiedadDetails?.cantidadBanios}}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row pt-2">
-                <div class="col-12">
-                    <div class="card">
+            <div class="flex-row pt-2">
+                <div class="wide-column">
+                    <div class="info-card">
                         <div class="card-body">
-                            <h4>Sobre la comodidad</h4>
-                            <p>{{propiedadDetails?.descripcion}}</p>
-                            <div class="row">
-                                <div class="col-3 pt-2">
-                                    <i class="fa fa-car" aria-hidden="true"></i> {{propiedadDetails?.cantidadHabitaciones}} Habitaciones
-                                </div>
-                                <div class="col-3 pt-2">
-                                    <i class="fa fa-car" aria-hidden="true"></i> {{propiedadDetails?.cantidadBanios}} Baños
-                                </div>
-                                <div class="col-3 pt-2">
+                            <h4>Detalle</h4>
+                            <p>"{{propiedadDetails?.descripcion}}"</p>
+                            <div class="flex-row">
+                                <div class="main-column pt-2">
                                     <i class="fa fa-car" aria-hidden="true"></i> {{propiedadDetails?.permiteMascotas ? 'Mascotas permitidas' : 'Mascotas no permitidas'}}
-                              </div>
-                                <div class="col-3 pt-2">
-                                    <i class="fa fa-car" aria-hidden="true"></i> {{propiedadDetails?.tienePiscina ? 'Piscina' : 'Sin piscina'}}
+                                </div>
+                                <div class="main-column pt-2">{{propiedadDetails?.tienePiscina ? 'Con Piscina' : 'Sin piscina'}}
                                 </div>
                             
-                                <div class="col-3 pt-2">
-                                    <i class="fa fa-car" aria-hidden="true"></i> {{propiedadDetails?.tieneAsador ? 'Asador' : 'Sin asador'}}
-                                </div>
-                                <div class="col-3 pt-2">
-                                    <i class="fa fa-car" aria-hidden="true"></i> Valor por noche: ${{propiedadDetails?.valorNoche}}
-                                </div>
+                            <div class="main-column pt-2">{{propiedadDetails?.tieneAsador ? 'Con Asador' : 'Sin asador'}}
                             </div>
-                            
+                        
+                        <div class="main-column pt-2">Valor por noche: ${{propiedadDetails?.valorNoche}}
+                        </div>    
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-          
-         
                 </div>
             </div>
         </div>
+    </div>
+</div>
+</body>
+</html>

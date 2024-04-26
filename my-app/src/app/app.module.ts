@@ -7,11 +7,13 @@ import { PropiedadCardComponent} from './reusableComponents/propiedad-card/propi
 import { PropiedadesComponent } from './propiedades/propiedades.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
     PropiedadesComponent,
-    PropiedadCardComponent
+    PropiedadCardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
