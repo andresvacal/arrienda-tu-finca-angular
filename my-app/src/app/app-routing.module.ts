@@ -5,6 +5,8 @@ import { BuscarComponent } from './buscar/buscar.component';
 import { BookingComponent } from './booking/booking.component';
 import { PropiedadesComponent } from './propiedades/propiedades.component';
 import { LoginComponent } from './login/login.component';
+import { ReservacionesComponent } from './reservaciones/reservaciones.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 const routes: Routes = [
   {
@@ -24,8 +26,14 @@ component: LoginComponent},
 {path: 'booking/:propiedadid',
 component: BookingComponent},
 
+{path: 'reservaciones',
+component: ReservacionesComponent},
+
 {path: 'propiedades',
 component: PropiedadesComponent},
+
+{path: 'perfil',
+component: PerfilComponent},
 ];
 
 @NgModule({

@@ -41,13 +41,10 @@ export class PropiedadesComponent implements OnInit{
           
       ]
   }
-
-
   constructor(private prpSrv: PropiedadService, private router: Router) { 
     const local = localStorage.getItem('UsuarioArriendaTuFinca');
     if (local != null) {
       this.loggedUser = JSON.parse(local);
-      this.propiedadObj.idArrendatario = this.loggedUser.idArrendador;
     }
 
   }
@@ -96,7 +93,7 @@ savePropiedad() {
 
   // Make the HTTP request
   this.prpSrv.registerproperty(requestBody, this.loggedUser.idArrendador).subscribe((res: any) => {
-    if (res.result =! null) {
+    if (res =! null) {
       alert('Propiedad guardada');
       console.log(res);
       this.close();

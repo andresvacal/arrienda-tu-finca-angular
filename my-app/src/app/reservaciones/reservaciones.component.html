@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Current Reservations</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body {
+        font-family: Arial, sans-serif; 
+    }
+    .reservation-card {
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+    }
+</style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 text-end">
+            <button class="btn btn-success btn-sm" (click)="addNewReservation()">Add New Reservation</button>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6" *ngFor="let reservation of reservationsList">
+            <div class="card-body p-0">
+                <img [src]="reservation.propiedad?.fotos[0]?.nombreArchivo">
+            </div>
+            <div class="reservation-card" (click)="viewReservationDetails(reservation.idSolicitud)">
+                <h4>{{ reservation.propiedad.nombre }}</h4>
+                <p><strong>Ubicación:</strong> {{ reservation.propiedad.departamento }}, {{ reservation.propiedad.municipio }}</p>
+                <p><strong>Llegada:</strong> {{ reservation.fechaLlegada | date:'mediumDate' }}</p>
+                <p><strong>Salida:</strong> {{ reservation.fechaSalida | date:'mediumDate' }}</p>
+                <p><strong>Valor por noche:</strong> ${{ reservation.propiedad.valorNoche }}</p>
+                <p><strong>Valor Total:</strong> ${{ reservation.valor }}</p>
+                <p><strong>Estado: </strong> <span [ngClass]="{'text-success': reservation.estado === 'confirmed', 'text-warning': reservation.estado === 'pendiente', 'text-danger': reservation.estado === 'cancelled'}">{{ reservation.estado }}</span></p>
+            </div>
+        </div>
+    </div>
+    
+    
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

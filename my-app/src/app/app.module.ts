@@ -8,19 +8,32 @@ import { PropiedadesComponent } from './propiedades/propiedades.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Import this
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker'; // Import this
+import { BookingComponent } from './booking/booking.component';
+import { ReservacionesComponent } from './reservaciones/reservaciones.component';
+import { PerfilComponent } from './perfil/perfil.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     PropiedadesComponent,
     PropiedadCardComponent,
-    HomeComponent
+    HomeComponent,
+    BookingComponent,
+    ReservacionesComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,   
     HttpClientModule,
-    JsonPipe
+    JsonPipe,
+    BrowserAnimationsModule, // Add this
+    BsDatepickerModule.forRoot() // Add this
   ],
   providers: [],
   bootstrap: [AppComponent]

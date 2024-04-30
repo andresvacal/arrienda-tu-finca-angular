@@ -21,11 +21,22 @@ export class PropiedadService {
     debugger;
     return this.http.post(`${this.apiEndpoint}propiedad/GuardarPropiedad/${userId}`, obj);
   }
-  
   ObtenerPropiedades() {
 return this.http.get(this.apiEndpoint + 'propiedad/Verpropiedades');
   }
   ObtenerPropiedad(propiedadid:string) {
     return this.http.get(this.apiEndpoint + 'propiedad/Verpropiedad/' + propiedadid);
   }
+  crearSolicitudArriendo(data: any) {
+    console.log(data);
+    alert('Propiedad guardada');
+    return this.http.post(this.apiEndpoint + 'solictudaArriendo/CrearSolicitudArriendo', data);
+  }
+  loadReservationsByUserId(arrendadorId: number) {
+    return this.http.get(`${this.apiEndpoint}solictudaArriendo/SolicitudArriendoUsuario/${arrendadorId}`, {});
+  }
+  getUserById(userId: number) {
+    return this.http.get(`${this.apiEndpoint}arrendador/${userId}`);
+  }
+
 }

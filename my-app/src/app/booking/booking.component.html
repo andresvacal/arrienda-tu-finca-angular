@@ -5,83 +5,83 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Property Details</title>
 <style>
-    /* Base settings for the layout */
+    body {
+        font-family: Arial, sans-serif; 
+    }
+    
     .full-width {
         width: 100%;
         margin: 0 auto;
     }
-
     .main-column,
     .side-column,
     .wide-column {
         padding: 15px;
+        text-align: center; 
     }
 
-    /* Styling for main container and rows */
     .main-container {
         max-width: 1200px;
         margin: 0 auto;
+        text-align: center; 
     }
-
     .flex-row {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center; 
+        align-items: center; 
     }
-
-    /* Column sizing */
     .main-column {
-        flex: 0 0 66.66%;
+        flex: 1; 
     }
 
     .side-column {
-        flex: 0 0 33.33%;
+        flex: 1; 
     }
 
     .wide-column {
         flex: 0 0 100%;
     }
-
-    /* Card styling */
     .info-card {
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         border-radius: 8px;
         overflow: hidden;
         margin-bottom: 20px;
+        background-color: #f8f9fa; 
     }
-
     .info-card .card-body {
         padding: 20px;
         background-color: #fff;
     }
-
     .info-card img {
         width: 100%;
         height: auto;
         border-radius: 8px;
     }
-
-    /* Typography and icons */
     h4, h6 {
-        color: #333;
+        color: #3498db; 
         margin-bottom: 10px;
     }
-
     p {
-        color: #666;
+        color: #333; 
         line-height: 1.5;
     }
-
     .fa {
-        color: #f0ad4e; /* Change icon color here */
+        color: #f0ad4e; 
     }
-
-    /* Utility classes */
+    .bold {
+        font-weight: bold; 
+    }
     .text-end {
-        text-align: right;
+        text-align: center; /* Ensures text is centered even in utility class */
     }
-
     .pt-2 {
         padding-top: 10px;
+    }
+        .datepicker-container {
+        background-color: #fff; /* White background */
+        z-index: 1000; /* Ensure the calendar appears above other elements */
+        position: absolute; /* Position the calendar absolutely */
     }
 </style>
 </head>
@@ -100,9 +100,44 @@
                 <div class="side-column">
                     <div class="info-card">
                         <div class="card-body">
-                            <i class="fa fa-star" aria-hidden="true"></i> 
+                            <i class="fa fa-star" aria-hidden="true"></i>
                             <!-- more icons -->
-                            <p> {{propiedadDetails?.nombre}} <small></small></p>
+                            <p class="bold"> {{propiedadDetails?.nombre}} <small></small></p>
+                        
+                        </div>
+                    </div>                        
+<button type="button" class="btn btn-success" (click)="isDatePickerVisible = true">Reservar</button>
+<div *ngIf="isDatePickerVisible">
+    <input type="text" placeholder="Start date"
+           class="form-control"
+           bsDatepicker [(ngModel)]="startDate">
+    <input type="text" placeholder="End date"
+           class="form-control"
+           bsDatepicker [(ngModel)]="endDate">
+    <button type="button" class="btn btn-outline-primary round-button mx-2" (click)="makeReservation()">Confirmar Fechas</button>
+</div>
+     
+                </div>              
+            </div>
+            <div class="flex-row pt-2">
+                <div class="wide-column">
+                    <div class="info-card">
+                        <div class="card-body">
+                            <h4>Detalle</h4>
+                            <p>"{{propiedadDetails?.descripcion}}"</p>
+                            <div class="flex-row">
+                                <div class="main-column pt-2">
+                                    <i class="fa fa-car" aria-hidden="true"></i> {{propiedadDetails?.permiteMascotas ? 'Mascotas permitidas' : 'Mascotas no permitidas'}}
+                                </div>
+                                <div class="main-column pt-2">{{propiedadDetails?.tienePiscina ? 'Con Piscina' : 'Sin piscina'}}
+                                </div>
+                            
+                                <div class="main-column pt-2">{{propiedadDetails?.tieneAsador ? 'Con Asador' : 'Sin asador'}}
+                                </div>
+                            
+                                <div class="main-column pt-2">Valor por noche: ${{propiedadDetails?.valorNoche}}
+                                </div>    
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -128,29 +163,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex-row pt-2">
-                <div class="wide-column">
-                    <div class="info-card">
-                        <div class="card-body">
-                            <h4>Detalle</h4>
-                            <p>"{{propiedadDetails?.descripcion}}"</p>
-                            <div class="flex-row">
-                                <div class="main-column pt-2">
-                                    <i class="fa fa-car" aria-hidden="true"></i> {{propiedadDetails?.permiteMascotas ? 'Mascotas permitidas' : 'Mascotas no permitidas'}}
-                                </div>
-                                <div class="main-column pt-2">{{propiedadDetails?.tienePiscina ? 'Con Piscina' : 'Sin piscina'}}
-                                </div>
-                            
-                            <div class="main-column pt-2">{{propiedadDetails?.tieneAsador ? 'Con Asador' : 'Sin asador'}}
-                            </div>
-                        
-                        <div class="main-column pt-2">Valor por noche: ${{propiedadDetails?.valorNoche}}
-                        </div>    
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>
