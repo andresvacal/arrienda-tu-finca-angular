@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de reserva</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <h2>Detalles de reserva</h2>
+            <h4>Estado: ({{ reservation.estado }} de pago)</h4>
+
+        </div>
+
+        <div class="flex-row">
+            <div class="col-12 text-end">
+                <button class="btn btn-success btn-sm" >Pagar reserva</button>
+            </div>
+            <div class="main-column">
+                <img [src]="reservation.propiedad.fotos[0]?.nombreArchivo" class="property-image">
+                <div class="details">
+
+                    <p class="info-title">Propiedad:</p>
+                    <p class="info-text"> {{ reservation.propiedad.nombre}}</p>
+                    <p class="info-title">Descripción de la propiedad:</p>
+                    <p class="info-text">{{ reservation.propiedad.descripcion }}</p>
+                    <p class="info-title">Ubicación:</p>
+                    <p class="info-text">{{ reservation.propiedad.departamento }}, {{ reservation.propiedad.municipio }}</p>
+                    <p class="info-title">Ambientes:</p>
+                    <p class="info-text">Habitaciones: {{ reservation.propiedad.cantidadHabitaciones }}</p>
+                    <p class="info-text">Baños : {{ reservation.propiedad.cantidadBanios }}</p>
+                    <p class="info-title">Extras:</p>
+                    <p class="info-text">- {{ reservation.propiedad?.permiteMascotas ? 'Mascotas permitidas' : 'Mascotas no permitidas'}}</p>
+                    <p class="info-text">- {{ reservation.propiedad?.tienePiscina ? 'Con Piscina' : 'Sin piscina'}}</p>   
+                    <p class="info-text">- {{ reservation.propiedad?.tieneAsador ? 'Con Asador' : 'Sin asador'}}</p>
+
+                </div>
+            </div>
+            <div class="side-column">
+
+                <div class="details">
+                    <p class="info-title">Mi información en reserva:</p>
+                    <p class="info-text">Titular: {{ reservation.arrendador.nombres }} {{ reservation.arrendador.apellidos }}</p>
+                    <p class="info-text">Correo: {{ reservation.arrendador.correoElectronico }}</p>
+                    <p class="info-text">Telefono: {{ reservation.arrendador.telefono }}</p>
+                    <p class="info-title">Fechas:</p>
+                    <p class="info-text">Check-in: {{ reservation.fechaLlegada | date:'mediumDate' }}</p>
+                    <p class="info-text">Check-out: {{ reservation.fechaSalida | date:'mediumDate' }}</p>
+                    <p class="info-title">Detalles de Costo:</p>
+                    <p class="info-text">Valor por noche: ${{ reservation.propiedad.valorNoche }}</p>
+                    <p class="info-text">Costo Total: ${{ reservation.valor }}</p>                    
+                      </div>
+                      <div class="side-column">
+                        <div class="details">
+                            <p class="info-title">información de Arrendatario:</p>
+                            <p class="info-text">Nombres: {{ reservation.arrendatario.nombres }} {{ reservation.arrendador.apellidos }}</p>
+                            <p class="info-text">Correo: {{ reservation.arrendatario.correoElectronico }}</p>
+                            <p class="info-text">Telefono: {{ reservation.arrendatario.telefono }}</p>
+                        </div>    
+                    </div>                   
+            </div>
+
+            
+        </div>
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

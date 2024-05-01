@@ -38,5 +38,13 @@ return this.http.get(this.apiEndpoint + 'propiedad/Verpropiedades');
   getUserById(userId: number) {
     return this.http.get(`${this.apiEndpoint}arrendador/${userId}`);
   }
-
+  changeUserById(userId: number, data: any) {
+    return this.http.put(`${this.apiEndpoint}arrendador/${userId}`, data);
+  }
+  deleteUserById(userId: number) {
+    return this.http.delete(`${this.apiEndpoint}arrendador/${userId}`);
+  }
+  getreservacionById(reservacionId: number) { 
+    return this.http.get(`${this.apiEndpoint}solictudaArriendo/Solicitud/${reservacionId}`);
+  }
 }

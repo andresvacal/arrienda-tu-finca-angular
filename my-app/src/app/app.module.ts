@@ -13,6 +13,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker'; // Import this
 import { BookingComponent } from './booking/booking.component';
 import { ReservacionesComponent } from './reservaciones/reservaciones.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { ReservacionDetailComponent } from './reservacion-detail/reservacion-detail.component';
 
 
 
@@ -25,6 +26,7 @@ import { PerfilComponent } from './perfil/perfil.component';
     BookingComponent,
     ReservacionesComponent,
     PerfilComponent,
+    ReservacionDetailComponent,
   ],
   imports: [
     BrowserModule,

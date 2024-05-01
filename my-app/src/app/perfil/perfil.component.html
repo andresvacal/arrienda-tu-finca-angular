@@ -12,9 +12,13 @@
     </style>
 </head>
 <body>
+    <div class="col-12 text-end">
+        <button class="btn btn-success btn-sm" (click)="deleteAccount()">Eliminar Cuenta</button>
+    </div>
+    
     <div class="container">
         <h2>Editar Perfil</h2>
-        <form>
+        <form (submit)="saveChanges()">
             <div class="form-group">
                 <label for="nombres">Nombres</label>
                 <input type="text" class="form-control" id="nombres" name="nombres" [(ngModel)]="loggedUser.nombres">
@@ -36,6 +40,7 @@
                 <input type="password" class="form-control" id="password" name="password" [(ngModel)]="loggedUser.password">
             </div>
             <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            
         </form>
     </div>
     

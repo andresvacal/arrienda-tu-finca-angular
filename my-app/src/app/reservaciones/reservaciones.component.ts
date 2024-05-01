@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
 export class ReservacionesComponent implements OnInit {
   loggedUser: any;
   reservationsList: any[] = [];
-
-
   propiedadObj: any = {
     "idPropiedad": 0,
     "nombre": "",
@@ -72,9 +70,9 @@ reservacionObj: any = {
   
 
   viewReservationDetails(reservationId: number) {
+    this.router.navigate(['/Reserva', reservationId]);
   }
 
   addNewReservation() {
-    // Logic to open a form or modal to create a new reservation
   }
 }
