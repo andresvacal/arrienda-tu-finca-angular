@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { ReservacionesComponent } from './reservaciones/reservaciones.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ReservacionDetailComponent } from './reservacion-detail/reservacion-detail.component';
+import { PagoComponent } from './pago/pago.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ component: PerfilComponent},
 
 {path: 'Reserva/:idSolicitud',
 component: ReservacionDetailComponent},
+
+{path: 'Reserva/:idSolicitud/:idArrendador/:idArrendatario',
+component: PagoComponent},
+
 ];
 
 @NgModule({

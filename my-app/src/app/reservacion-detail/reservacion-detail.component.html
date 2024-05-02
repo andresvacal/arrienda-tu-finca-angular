@@ -10,14 +10,15 @@
     <div class="main-container">
         <div class="header">
             <h2>Detalles de reserva</h2>
-            <h4>Estado: ({{ reservation.estado }} de pago)</h4>
+            <h4>Estado: ({{ reservation.estado }})</h4>
 
         </div>
 
         <div class="flex-row">
             <div class="col-12 text-end">
-                <button class="btn btn-success btn-sm" >Pagar reserva</button>
+                <button class="btn btn-success btn-sm" (click)="submitPayment()">Pagar reserva</button>
             </div>
+            
             <div class="main-column">
                 <img [src]="reservation.propiedad.fotos[0]?.nombreArchivo" class="property-image">
                 <div class="details">

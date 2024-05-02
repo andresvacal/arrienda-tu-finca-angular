@@ -14,6 +14,7 @@ import { BookingComponent } from './booking/booking.component';
 import { ReservacionesComponent } from './reservaciones/reservaciones.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ReservacionDetailComponent } from './reservacion-detail/reservacion-detail.component';
+import { PagoComponent } from './pago/pago.component';
 
 
 
@@ -27,6 +28,7 @@ import { ReservacionDetailComponent } from './reservacion-detail/reservacion-det
     ReservacionesComponent,
     PerfilComponent,
     ReservacionDetailComponent,
+    PagoComponent,
   ],
   imports: [
     BrowserModule,

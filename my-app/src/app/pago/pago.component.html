@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Pago</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif; 
+            padding-top: 20px;
+        }
+        .form-section {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .payment-form {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .payment-details, .card-details {
+            flex: 1 1 50%; /* cada uno ocupa la mitad del espacio */
+        }
+        @media (max-width: 768px) {
+            .payment-details, .card-details {
+                flex: 1 1 100%; /* se apilan verticalmente en pantallas pequeñas */
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="payment-form">
+        <div class="payment-details form-section">
+            <h2>Detalles de la Reserva</h2>
+            <form>
+                <div class="form-group">
+                    <label>Nombre de la Propiedad</label>
+                    <input type="text" class="form-control" value="{{ reservation.propiedad.nombre }}" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Fecha de Llegada</label>
+                    <input type="text" class="form-control" value="{{ reservation.fechaLlegada | date:'mediumDate' }}" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Fecha de Salida</label>
+                    <input type="text" class="form-control" value="{{ reservation.fechaSalida | date:'mediumDate' }}" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Costo Total</label>
+                    <input type="text" class="form-control" value="${{ reservation.valor }}" disabled>
+                </div>
+            </form>
+        </div>
+
+        <div class="card-details form-section">
+            <h2>Detalles de la Tarjeta de Crédito</h2>
+            <form>
+                <div class="form-group">
+                    <label for="ccNumber">Número de Tarjeta de Crédito</label>
+                    <input type="text" class="form-control" id="ccNumber" placeholder="Ingrese el número de la tarjeta">
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="expirationDate">Fecha de Vencimiento</label>
+                        <input type="text" class="form-control" id="expirationDate" placeholder="MM/AA">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="cvv">CVV</label>
+                        <input type="text" class="form-control" id="cvv" placeholder="CVV">
+                    </div>
+                </div>
+                <button type="button" class="btn btn-success mt-4">Enviar Pago</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
