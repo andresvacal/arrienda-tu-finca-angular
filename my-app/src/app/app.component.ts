@@ -62,17 +62,26 @@ onlogin(){
   debugger;
   this.propSrv.loginUser(this.loginObj).subscribe((res: any) => {
     if (res !== null) { 
-        alert('Login exitoso');
-        localStorage.setItem('UsuarioArriendaTuFinca', JSON.stringify(res));
-        console.log(res);
-        this.loggedUser = res.data;
-        this.closeLogin();
-
+      debugger;
+      alert('Login exitoso');
+      this.propSrv.authenticateUser().subscribe({
+        next: (tokenRes) => {
+          localStorage.setItem('UsuarioArriendaTuFinca', JSON.stringify(res));
+          console.log(res);
+          this.loggedUser = res.data;
+          this.closeLogin();
+        },
+        error: (err) => {
+          console.error('Error en la autenticación:', err);
+          alert('Error en la autenticación');
+        }
+      });
     } else {
         alert('Error: ' + res.statusText);
     }
-});
+  });
 }
+
 
 openLogin() {
   const model = document.getElementById('loginModal'); 
