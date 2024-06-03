@@ -64,7 +64,7 @@ onlogin(){
     if (res !== null) { 
       debugger;
       alert('Login exitoso');
-      this.propSrv.authenticateUser().subscribe({
+      this.propSrv.authenticateUser(this.loginObj).subscribe({
         next: (tokenRes) => {
           localStorage.setItem('UsuarioArriendaTuFinca', JSON.stringify(res));
           console.log(res);
